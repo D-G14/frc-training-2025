@@ -4,14 +4,45 @@
 
 package frc.robot.subsytems;
 
+
+import com.revrobotics.spark.SparkBase.PersistMode;
+import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+import com.revrobotics.spark.config.SparkMaxConfig;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.constants.MotorConstants;
 
 public class Motor extends SubsystemBase {
   /** Creates a new Motor. */
-  public Motor() {}
+  private SparkMax m_motor = new SparkMax(MotorConstants.kMotorID, MotorType.kBrushless);
+  private SparkMaxConfig m_config = new SparkMaxConfig();
+  public Motor() {
+    m_config.idleMode(IdleMode.kBrake);
+    m_motor.configure(m_config,ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
   }
-}
+  //set the motor speed
+  /*public double speed;
+  public void setSpeed(double Speed){
+    speed = Speed;
+    public void set(double speed);
+    }*/
+  public void setSpeed(double speed){}
+  //get the motor speed
+   public double getSpeed(){
+    return m_motor.get();
+   }
+   
+  /*public void getSpeed() {
+  }*/
+  
+      @Override
+      public void periodic() {
+        // This method will be called once per scheduler run
+        SmartDashboard.putNumber("Motor Speed",getSpeed());
+      }
+    }
