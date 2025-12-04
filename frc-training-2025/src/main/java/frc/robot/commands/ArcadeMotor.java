@@ -6,6 +6,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.constants.IOConstants;
+import frc.robot.constants.MotorConstants;
 import frc.robot.subsytems.Motor;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -39,11 +41,16 @@ public class ArcadeMotor extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_speed = m_joystick.getRawAxis(IOConstants.kMotorControlAxis) * MotorConstants.kArcadeMultiplier;
+    m_motor.setSpeed(m_speed);
+  }
   
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_motor.setSpeed(0);
+  }
 
   // Returns true when the command should end.
   @Override

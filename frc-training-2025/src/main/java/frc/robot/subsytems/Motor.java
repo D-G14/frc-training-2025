@@ -30,9 +30,8 @@ public class Motor extends SubsystemBase {
     public void set(double speed);
     }*/
 
-  private double m_speed;
   public void setSpeed(double speed) {
-    this.m_speed=speed;
+    m_motor.set(speed);
   }
   //get the motor speed
   
