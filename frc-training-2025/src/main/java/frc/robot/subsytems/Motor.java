@@ -3,8 +3,6 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsytems;
-
-
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -31,11 +29,16 @@ public class Motor extends SubsystemBase {
     speed = Speed;
     public void set(double speed);
     }*/
-  public void setSpeed(double speed){}
+
+  private double m_speed;
+  public void setSpeed(double speed) {
+    this.m_speed=speed;
+  }
   //get the motor speed
-   public double getSpeed(){
-    return m_motor.get();
-   }
+  
+  public double getSpeed() {
+  return m_motor.get();
+  }
    
   /*public void getSpeed() {
   }*/
