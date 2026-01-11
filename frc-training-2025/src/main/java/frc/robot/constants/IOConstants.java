@@ -5,7 +5,7 @@
 package frc.robot.constants;
 
 /** Add your docs here. */
-public class MotorConstants {
-    public static final int kMotorID=0;
-    public static final double kArcadeMultiplier=0.5;
+public class IOConstants {
+    public static final int kMotorControlAxis = 0;
+    public static final int kJoystickID = 1;
 }
