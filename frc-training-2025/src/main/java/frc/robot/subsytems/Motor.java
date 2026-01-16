@@ -4,7 +4,6 @@
 
 package frc.robot.subsytems;
 
-
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -20,6 +19,8 @@ public class Motor extends SubsystemBase {
   /** Creates a new Motor. */
   private SparkMax m_motor = new SparkMax(MotorConstants.kMotorID, MotorType.kBrushless);
   private SparkMaxConfig m_config = new SparkMaxConfig();
+
+
   public Motor() {
     m_config.idleMode(IdleMode.kBrake);
     m_motor.configure(m_config,ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
